@@ -23,7 +23,6 @@ for student in students:
     print(f"Last Name: {student['last_name']}\n")
 
 #updating last name of student_id 1007
-
 updated_student = db.students.update_one({"student_id": 1007}, {"$set": {"last_name": "Smith"}})
 
 #using find_one method to find student
