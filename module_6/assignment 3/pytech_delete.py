@@ -41,7 +41,6 @@ print(f"First Name: {new_student['first_name']}")
 print(f"Last Name: {new_student['last_name']}\n")
 
 #deleting document for student id 1010
-
 db.students.delete_one({'student_id':1010})
 
 students = db.students.find()
