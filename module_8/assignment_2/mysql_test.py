@@ -1,3 +1,9 @@
+#Assignment 8.2
+#July 18th, 2023
+#Jeff Haberman
+#CYBR 410
+#Python script to make connection to MySQL database
+
 #import mysql connector for db connection commands
 import mysql.connector
 from mysql.connector import errorcode

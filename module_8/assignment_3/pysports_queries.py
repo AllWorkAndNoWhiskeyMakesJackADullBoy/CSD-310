@@ -1,3 +1,9 @@
+#Assignment 8.3
+#July 18th, 2023
+#Jeff Haberman
+#CYBR 410
+#Python script to connect to MySQL database in order to query/print team and player tables. 
+
 #import mysql connector for db connection commands
 import mysql.connector
 from mysql.connector import errorcode
