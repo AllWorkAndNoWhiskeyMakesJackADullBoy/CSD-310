@@ -1,4 +1,4 @@
-#Assignment 9.2
+#Assignment 9.3
 #July 25th, 2023
 #Jeff Haberman
 #CYBR 410
@@ -21,23 +21,66 @@ try:
     #connect to the database with variable, add to variable for printing
     db = mysql.connector.connect(**config)
 
+    #insert statement
+    insert_player = ("INSERT INTO player (first_name, last_name, team_id) VALUES ('Smeagol', 'Shire Folk', 1); ")
+
+    #update statement 
+    update_player = ("UPDATE player SET team_id = 2, first_name = 'Gollum', last_name = 'Ring Stealer' WHERE first_name = 'Smeagol'; ")
+
+    #delete statement
+    delete_player = ("DELETE FROM player WHERE first_name = 'Gollum'; ")
+
     #inner join query statement
     inner_join_query = ("SELECT player_id, first_name, last_name, team_name FROM player INNER JOIN team ON player.team_id = team.team_id")
 
-    #set cursor position for query
+    #set cursor position 
     cursor = db.cursor()
 
     #perform inner join query statement
+    cursor.execute(insert_player)
     cursor.execute(inner_join_query)
-
-    #print out all player records
-    print("-- DISPLAYING PLAYER RECORDS --")
+    #after insert player printout
+    print("-- DISPLAYING PLAYERS AFTER INSERT --")
     for (player_id, first_name, last_name, team_name) in cursor:
         print("Player ID: {}".format(player_id))
         print("First Name: {}".format(first_name))
         print("Last Name: {}".format(last_name))
         print("Team Name: {}".format(team_name))
         print("\n")
+
+    #set cursor position 
+    #cursor = db.cursor()
+
+    #perform inner join query statement
+    cursor.execute(update_player)
+    cursor.execute(inner_join_query)
+
+    #after update player printout
+    print("-- DISPLAYING PLAYERS AFTER UPDATE --")
+    for (player_id, first_name, last_name, team_name) in cursor:
+        print("Player ID: {}".format(player_id))
+        print("First Name: {}".format(first_name))
+        print("Last Name: {}".format(last_name))
+        print("Team Name: {}".format(team_name))
+        print("\n")
+
+    #set cursor position 
+    cursor = db.cursor()
+
+    #perform inner join query statement
+    cursor.execute(delete_player)
+    cursor.execute(inner_join_query)
+
+    #after delete player printout
+    print("-- DISPLAYING PLAYERS AFTER DELETE --")
+    for (player_id, first_name, last_name, team_name) in cursor:
+        print("Player ID: {}".format(player_id))
+        print("First Name: {}".format(first_name))
+        print("Last Name: {}".format(last_name))
+        print("Team Name: {}".format(team_name))
+        print("\n")
+
+
 #error handling section
 except mysql.connector.Error as err:
 
