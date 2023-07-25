@@ -48,8 +48,6 @@ try:
         print("Team Name: {}".format(team_name))
         print("\n")
 
-    #set cursor position 
-    #cursor = db.cursor()
 
     #perform inner join query statement
     cursor.execute(update_player)
@@ -64,8 +62,6 @@ try:
         print("Team Name: {}".format(team_name))
         print("\n")
 
-    #set cursor position 
-    cursor = db.cursor()
 
     #perform inner join query statement
     cursor.execute(delete_player)
