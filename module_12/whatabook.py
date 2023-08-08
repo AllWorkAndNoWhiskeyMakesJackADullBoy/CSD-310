@@ -120,9 +120,6 @@ def show_books_to_add(_cursor, _user_id):
     #Query list of books to add to user's wishlist
     book_query = ("SELECT book_id, book_name, author, details FROM book WHERE book_id NOT IN (SELECT book_id FROM wishlist WHERE user_id = {})".format(_user_id))
 
-    #Print the results
-    print(book_query)
-
     _cursor.execute(book_query)
 
     books_to_add = _cursor.fetchall()
